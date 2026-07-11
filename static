@@ -1,0 +1,483 @@
+/* ===========================
+HOW IT WORKS
+=========================== */
+
+#work{
+
+padding:80px 0;
+
+background:#ffffff;
+
+}
+
+#work h2{
+
+font-size:40px;
+
+font-weight:700;
+
+margin-bottom:15px;
+
+}
+
+#work p{
+
+color:#021b52;
+
+}
+
+#work .card{
+
+border:none;
+
+border-radius:18px;
+
+transition:.3s;
+
+padding:20px;
+
+}
+
+#work .card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+}
+
+#work i{
+
+margin-bottom:20px;
+
+}
+
+/* ===========================
+DETECTOR
+=========================== */
+
+#detector{
+
+padding:80px 0;
+
+background:#f7f9fc;
+
+}
+
+#detector .card{
+
+border-radius:20px;
+
+}
+
+#newsText{
+
+resize:none;
+
+font-size:17px;
+
+padding:18px;
+
+border-radius:15px;
+
+border:2px solid #dee2e6;
+
+transition:.3s;
+
+}
+
+#newsText:focus{
+
+border-color:#051124;
+
+box-shadow:0 0 12px rgba(13,110,253,.25);
+
+outline:none;
+
+}
+
+#count{
+
+font-weight:bold;
+
+color:#8bb2ec;
+
+}
+
+/* Buttons */
+
+#predictBtn{
+
+min-width:170px;
+
+}
+
+#clearBtn{
+
+min-width:170px;
+
+margin-left:10px;
+
+}
+
+/* ===========================
+LOADING
+=========================== */
+
+#loading{
+
+margin-top:30px;
+
+}
+
+#loading p{
+
+margin-top:15px;
+
+font-weight:600;
+
+font-size:18px;
+
+}
+
+/* ===========================
+RESULT CARD
+=========================== */
+
+#result{
+
+margin-top:35px;
+
+}
+
+#result .card{
+
+border-radius:20px;
+
+animation:fadeIn .5s;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+.progress{
+
+height:24px;
+
+border-radius:30px;
+
+}
+
+.progress-bar{
+
+font-size:14px;
+
+font-weight:bold;
+
+}
+
+/* ===========================
+DASHBOARD
+=========================== */
+
+#dashboard{
+
+padding:80px 0;
+
+}
+
+#dashboard .card{
+
+border:none;
+
+border-radius:20px;
+
+transition:.3s;
+
+}
+
+#dashboard .card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 15px 30px rgba(0,0,0,.18);
+
+}
+
+#dashboard h2{
+
+font-size:42px;
+
+font-weight:bold;
+
+margin-bottom:20px;
+
+}
+
+#dashboard h5{
+
+font-weight:600;
+
+margin-bottom:15px;
+
+}
+
+#dashboard h6{
+
+font-size:18px;
+
+font-weight:600;
+
+color:#0d6efd;
+
+}
+/* ===========================
+PREDICTION HISTORY
+=========================== */
+
+#history{
+
+padding:80px 0;
+
+background:#ffffff;
+
+}
+
+#history table{
+
+background:#fff;
+
+border-radius:15px;
+
+overflow:hidden;
+
+}
+
+#history th{
+
+text-align:center;
+
+vertical-align:middle;
+
+}
+
+#history td{
+
+text-align:center;
+
+vertical-align:middle;
+
+}
+
+#downloadCSV{
+
+margin-right:10px;
+
+}
+
+/* ===========================
+CONTACT
+=========================== */
+
+#contact{
+
+padding:80px 0;
+
+}
+
+#contact .card{
+
+border:none;
+
+border-radius:20px;
+
+}
+
+#contact input,
+#contact textarea{
+
+border-radius:12px;
+
+padding:12px;
+
+border:1px solid #ced4da;
+
+}
+
+#contact input:focus,
+#contact textarea:focus{
+
+border-color:#132f5a;
+
+box-shadow:0 0 10px rgba(81, 112, 158, 0.25);
+
+outline:none;
+
+}
+
+#contact button{
+
+padding:12px 30px;
+
+font-size:18px;
+
+}
+
+/* ===========================
+FOOTER
+=========================== */
+
+footer{
+
+padding:30px 0;
+
+background:#aabcce;
+
+color:#fff;
+
+}
+
+footer h5{
+
+font-weight:bold;
+
+margin-bottom:10px;
+
+}
+
+footer p{
+
+margin-bottom:5px;
+
+}
+
+/* ===========================
+SCROLL TO TOP BUTTON
+=========================== */
+
+#topBtn{
+
+position:fixed;
+
+bottom:25px;
+
+right:25px;
+
+display:none;
+
+width:50px;
+
+height:50px;
+
+border-radius:50%;
+
+font-size:20px;
+
+z-index:999;
+
+}
+
+/* ===========================
+DARK MODE
+=========================== */
+
+.dark-mode{
+
+background:#7c7070;
+
+color:#ffffff;
+
+}
+
+.dark-mode section{
+
+background:hsl(0, 16%, 24%) !important;
+
+color:#ffffff;
+
+}
+
+.dark-mode .card{
+
+background:#0a0a0a;
+
+color:#ffffff;
+
+}
+
+.dark-mode textarea{
+
+background:#f1eeee;
+
+color:#ffffff;
+
+border:1px solid #555;
+
+}
+
+.dark-mode table{
+
+background:#1f1f1f;
+
+color:#ffffff;
+
+}
+
+.dark-mode footer{
+
+background:#000;
+
+}
+
+/* ===========================
+ANIMATIONS
+=========================== */
+
+.card{
+
+transition:all .3s ease;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+}
+.hero{
+    padding:80px 0;
+}
+
+.hero h1{
+    font-size:60px;
+    font-weight:700;
+}
+
+.hero p{
+    font-size:22px;
+}
+
+.hero-image{
+    max-width:500px;
+    width:100%;
+}
+
+
