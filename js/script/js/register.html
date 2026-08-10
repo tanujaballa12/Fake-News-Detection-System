@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Register - Fake News Detection</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+body{
+    background:
+    linear-gradient(
+        rgba(4,20,50,0.65),
+        rgba(4,20,50,0.65)
+    ),
+    url("/static/images/login_bg.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-family:'Poppins',sans-serif;
+}
+
+.register-card{
+    width:500px;
+    border:none;
+    border-radius:20px;
+    overflow:hidden;
+
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+
+    box-shadow:0 15px 40px rgba(0,0,0,0.35);
+}
+
+.register-header{
+    background:rgba(7,34,75,0.85);
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+.register-header i{
+    font-size:50px;
+    margin-bottom:10px;
+}
+
+.register-body{
+    padding:35px;
+    background:rgba(255, 255, 255, 0.95);
+}
+
+.form-control{
+    border-radius:10px;
+    height:50px;
+}
+
+.form-control:focus{
+    border-color:#082b66;
+    box-shadow:0 0 10px rgba(12, 56, 133, 0.25);
+}
+
+.btn-register{
+    width:100%;
+    border-radius:10px;
+    font-weight:bold;
+    height:50px;
+}
+
+.login-link{
+    text-align:center;
+    margin-top:20px;
+}
+
+.login-link a{
+    text-decoration:none;
+    font-weight:600;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card register-card">
+
+    <div class="register-header">
+
+        <i class="fa-solid fa-user-plus"></i>
+
+        <h2>Fake News Detector</h2>
+
+        <p class="mb-0">
+            Create Your Account
+        </p>
+
+    </div>
+
+    <div class="register-body">
+
+        <form method="POST">
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Username
+                </label>
+
+                <input
+                type="text"
+                name="username"
+                class="form-control"
+                placeholder="Enter Username"
+                required>
+
+            </div>
+            <div class="mb-3">
+
+    <label class="form-label">
+        Email
+    </label>
+
+    <input
+    type="email"
+    name="email"
+    class="form-control"
+    placeholder="Enter Email"
+    required>
+
+<div class="mb-3">
+
+    <label class="form-label">
+        Password
+    </label>
+
+    <div class="password-box">
+
+        <input
+        type="password"
+        id="password"
+        name="password"
+        class="form-control"
+        placeholder="Enter Password"
+        required>
+
+        <i class="fa-solid fa-eye eye-icon" id="togglePassword"></i>
+
+    </div>
+
+</div>
+          
+
+            <button
+            type="submit"
+            class="btn btn-primary btn-register">
+
+                <i class="fa-solid fa-user-plus"></i>
+                Register
+
+            </button>
+
+        </form>
+
+        <div class="login-link">
+
+            Already have an account?
+
+            <a href="/login">
+                Login Here
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+
+const togglePassword =
+document.getElementById("togglePassword");
+
+const password =
+document.getElementById("password");
+
+togglePassword.addEventListener("click", function(){
+
+    if(password.type === "password"){
+
+        password.type = "text";
+
+        togglePassword.classList.remove("fa-eye");
+        togglePassword.classList.add("fa-eye-slash");
+
+    }else{
+
+        password.type = "password";
+
+        togglePassword.classList.remove("fa-eye-slash");
+        togglePassword.classList.add("fa-eye");
+
+    }
+
+});
+
+</script>
+        
+    
+
+</script>
+</body>
+</html>
