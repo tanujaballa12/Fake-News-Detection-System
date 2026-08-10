@@ -1,0 +1,31 @@
+# ==========================
+# PROJECT REQUIREMENTS
+# ==========================
+
+Python 3.10+
+
+Flask
+sqlite3
+pickle
+re
+pandas
+numpy
+scikit-learn
+newsapi-python
+difflib
+
+Frontend:
+HTML5
+CSS3
+JavaScript
+Bootstrap 5
+
+Database:
+SQLite
+
+Machine Learning:
+Logistic Regression
+TF-IDF Vectorizer
+
+API:
+NewsAPI
