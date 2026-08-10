@@ -56,112 +56,286 @@ if (predictBtn) {
 
         const text = newsText.value.trim();
 
+
         if (text === "") {
+
             alert("Please paste some news.");
+
             return;
+
         }
+
 
         loading.innerHTML = `
         <div class="text-center">
             <div class="spinner-border text-primary"></div>
-            <h5 class="mt-3">AI is analyzing your news...</h5>
+            <h5 class="mt-3">
+            Analyzing news using Machine Learning...
+            </h5>
         </div>
         `;
 
+
         loading.style.display = "block";
+
         result.innerHTML = "";
+
+
 
         try {
 
+
             const response = await fetch("/predict", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
+
+                method:"POST",
+
+                headers:{
+                    "Content-Type":"application/json"
                 },
-                body: JSON.stringify({
-                    news: text
+
+                body:JSON.stringify({
+
+                    news:text
+
                 })
+
             });
+
+
 
             const data = await response.json();
 
+
+
             loading.style.display = "none";
 
-            let color = data.prediction === "Fake" ? "red" : "green";
+
+
+            let color;
+
+
+            if(data.prediction.includes("Fake")){
+
+                color="#7a0d18";
+
+            }
+
+            else if(data.prediction.includes("Real")){
+
+                color="#198754";
+
+            }
+
+            else{
+
+                color="#ffc107";
+
+            }
+
+
+
 
             result.innerHTML = `
+
+
             <div class="card shadow-lg border-0 mt-4">
 
-                <div class="card-header ${data.prediction === "Real" ? "bg-success" : "bg-danger"} text-white">
-                    <h3 class="mb-0">
-                        <i class="fa-solid ${data.prediction === "Real" ? "fa-circle-check" : "fa-circle-xmark"}"></i>
-                        Prediction Result
+
+                <div class="card-header ${
+                    data.prediction.includes("Real")
+                    ?"bg-success"
+                    :
+                    data.prediction.includes("Fake")
+                    ?"bg-danger"
+                    :
+                    "bg-warning"
+
+                } text-white">
+
+
+                    <h3>
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    Prediction Result
+
                     </h3>
+
+
                 </div>
+
+
 
                 <div class="card-body text-center">
 
-                    <h2 style="color:${color}; font-weight:bold;">
-                        ${data.prediction} News
+
+                    <h2 style="color:${color};font-weight:bold;">
+
+                    ${data.prediction}
+
                     </h2>
 
-                    <p class="fs-5">Confidence Score</p>
+
+
+                    <p class="fs-5">
+
+                    Confidence Score
+
+                    </p>
+
+
 
                     <div class="progress mb-3" style="height:25px;">
-                        <div
-                            class="progress-bar ${data.prediction === "Real" ? "bg-success" : "bg-danger"}"
-                            style="width:${data.confidence};">
-                            ${data.confidence}
-                        </div>
+
+
+                    <div class="progress-bar ${
+                        
+                        data.prediction.includes("Real")
+                        ?"bg-success"
+                        :
+                        data.prediction.includes("Fake")
+                        ?"bg-danger"
+                        :
+                        "bg-warning"
+
+                    }"
+
+                    style="width:${data.confidence};">
+
+                    ${data.confidence}
+
                     </div>
+
+
+                    </div>
+
+
+
 
                     <table class="table table-bordered">
 
-                        <tr>
-                            <th>Model</th>
-                            <td>Logistic Regression</td>
-                        </tr>
 
-                        <tr>
-                            <th>Vectorizer</th>
-                            <td>TF-IDF</td>
-                        </tr>
+                    <tr>
 
-                        <tr>
-                            <th>Status</th>
-                            <td>${data.prediction}</td>
-                        </tr>
+                    <th>
+                    Model
+                    </th>
 
-                        <tr>
-                            <th>Date</th>
-                            <td>${new Date().toLocaleString()}</td>
-                        </tr>
+                    <td>
+                    Logistic Regression
+                    </td>
+
+                    </tr>
+
+
+
+                    <tr>
+
+                    <th>
+                    Vectorizer
+                    </th>
+
+                    <td>
+                    TF-IDF
+                    </td>
+
+                    </tr>
+  <tr>
+
+<th>
+Verification
+</th>
+
+<td>
+${
+    data.verified
+        ? "Verified"
+        : "Unverified"
+}
+</td>
+
+</tr>  
+
+    <tr>
+<th>
+Source
+</th>
+
+<td>
+${
+data.source && data.source !== ""
+?
+data.source
+:
+"No source found"
+}
+</td>
+
+</tr>                  
+
+                
+                    <tr>
+
+                    <th>
+                    Date
+                    </th>
+
+
+                    <td>
+
+                    ${new Date().toLocaleString()}
+
+                    </td>
+
+
+                    </tr>
+
+
 
                     </table>
 
+
+
                 </div>
 
+
             </div>
+
+
             `;
 
-            saveHistory(data.prediction, data.confidence);
 
-        } catch (error) {
 
-            loading.style.display = "none";
+        }
 
-            result.innerHTML = `
+
+        catch(error){
+
+
+            loading.style.display="none";
+
+
+            result.innerHTML=`
+
             <div class="alert alert-danger">
-                Error connecting Flask server.
+
+            Error connecting Flask server.
+
             </div>
+
             `;
+
 
             console.error(error);
+
+
         }
+
 
     });
 
-}
+
+} 
 
 // ===============================
 // SAVE HISTORY
@@ -280,6 +454,36 @@ if (resetBtn) {
         count.innerText = "0";
         result.innerHTML = "";
         loading.style.display = "none";
+
+    });
+
+}
+// ===============================
+// PASSWORD SHOW / HIDE
+// ===============================
+
+const togglePassword = document.getElementById("togglePassword");
+const password = document.getElementById("password");
+
+if (togglePassword && password) {
+
+    togglePassword.addEventListener("click", function () {
+
+        if (password.type === "password") {
+
+            password.type = "text";
+
+            this.classList.remove("fa-eye");
+            this.classList.add("fa-eye-slash");
+
+        } else {
+
+            password.type = "password";
+
+            this.classList.remove("fa-eye-slash");
+            this.classList.add("fa-eye");
+
+        }
 
     });
 
